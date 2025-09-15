@@ -6,8 +6,8 @@ const STRIPE_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_TE
 
 // Stripe Payment Links (これらは実際にStripeで作成後に更新)
 const PAYMENT_LINKS = {
-  monthly: 'https://buy.stripe.com/test_xxxxx', // 月額500円
-  yearly: 'https://buy.stripe.com/test_yyyyy',  // 年額プラン
+  monthly: 'https://buy.stripe.com/test_28EbJ0bcEfTp6F3gpr6Na00', // 月額500円
+  yearly: 'https://buy.stripe.com/test_3cI8wObcE4aHgfD4GJ6Na01',  // 年額プラン
 };
 
 export default function PremiumPage() {
