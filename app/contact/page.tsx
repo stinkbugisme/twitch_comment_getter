@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function ContactPage() {
+function ContactForm() {
   const searchParams = useSearchParams();
   const [formType, setFormType] = useState('user');
   const [content, setContent] = useState('');
@@ -240,5 +240,29 @@ export default function ContactPage() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-800">
+        <nav className="w-full p-6 border-b border-gray-200 dark:border-gray-700">
+          <div className="max-w-6xl mx-auto flex justify-between items-center">
+            <Link href="/" className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+              📊 Twitchコメント履歴保管庫
+            </Link>
+          </div>
+        </nav>
+        <div className="flex items-center justify-center min-h-[50vh]">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+            <p className="text-gray-600 dark:text-gray-300">読み込み中...</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <ContactForm />
+    </Suspense>
   );
 }
