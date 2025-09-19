@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Twitchコメント履歴保管庫
 
-## Getting Started
+Twitchユーザーの過去のコメントを確認できるChrome拡張機能のWebサイトです。
 
-First, run the development server:
+## 概要
+
+このプロジェクトは、Twitchのチャットメッセージをリアルタイムで収集・保存し、Chrome拡張機能を通じてユーザーの過去のコメント履歴を表示するシステムのWebサイト部分です。
+
+### 主な機能
+
+- 36万人以上のTwitchユーザーのコメント履歴を保管
+- Chrome拡張機能の紹介とダウンロード
+- プレミアムプランの案内
+- チャンネル追加リクエスト機能
+- ヘルプドキュメント
+
+## 技術スタック
+
+- **Framework**: Next.js 15.5
+- **Styling**: Tailwind CSS v4
+- **Database**: Supabase
+- **Language**: TypeScript
+
+## 開発環境のセットアップ
 
 ```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# ビルド
+npm run build
+
+# プロダクションサーバーの起動
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## プロジェクト構成
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+twitch_comment_getter/
+├── app/
+│   ├── page.tsx           # ホームページ
+│   ├── premium/           # プレミアムプラン
+│   ├── channels/          # 収集チャンネル一覧
+│   ├── legal/             # 特定商取引法に基づく表記
+│   ├── privacy/           # プライバシーポリシー
+│   ├── terms/             # 利用規約
+│   ├── help/              # ヘルプ
+│   └── contact/           # お問い合わせ
+└── public/                # 静的ファイル
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 関連プロジェクト
 
-## Learn More
+- **バックエンド**: `/backend_get_comment` - Pythonによるチャット収集システム
+- **Chrome拡張機能**: `/google_get_extension` - ユーザー履歴表示拡張機能
 
-To learn more about Next.js, take a look at the following resources:
+## ライセンス
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Copyright © 2025 兵頭勇哉. All rights reserved.

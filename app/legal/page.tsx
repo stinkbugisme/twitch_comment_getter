@@ -32,7 +32,10 @@ export default function LegalPage() {
                       販売業者
                     </td>
                     <td className="py-4">
-                      Twitchコメント履歴保管庫
+                      兵頭勇哉
+                      <span className="text-sm text-gray-500 dark:text-gray-400 block mt-1">
+                        （個人事業主）
+                      </span>
                     </td>
                   </tr>
 
@@ -41,10 +44,7 @@ export default function LegalPage() {
                       運営責任者
                     </td>
                     <td className="py-4">
-                      兵頭
-                      <span className="text-sm text-gray-500 dark:text-gray-400 block mt-1">
-                        （フルネームは請求があった場合、遅滞なく開示いたします）
-                      </span>
+                      兵頭勇哉
                     </td>
                   </tr>
 
@@ -56,6 +56,18 @@ export default function LegalPage() {
                       請求があった場合、遅滞なく開示いたします
                       <span className="text-sm text-gray-500 dark:text-gray-400 block mt-1">
                         ※正当な理由がある場合に限り開示いたします
+                      </span>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b border-gray-100 dark:border-gray-700">
+                    <td className="py-4 pr-8 font-medium text-gray-900 dark:text-white align-top">
+                      電話番号
+                    </td>
+                    <td className="py-4">
+                      請求があった場合、遅滞なく開示いたします
+                      <span className="text-sm text-gray-500 dark:text-gray-400 block mt-1">
+                        ※個人事業主のため、正当な理由がある場合に限り開示いたします
                       </span>
                     </td>
                   </tr>

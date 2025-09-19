@@ -1,6 +1,8 @@
 {
-  "name": "twitch_comment_getter",
-  "version": "0.1.0",
+  "name": "twitch-comment-history",
+  "version": "1.0.0",
+  "description": "Twitchユーザーの過去のコメントを確認できるChrome拡張機能のWebサイト",
+  "author": "兵頭勇哉",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
