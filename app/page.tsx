@@ -125,23 +125,19 @@ export default function Home() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2 mt-1">✓</span>
-                  <span className="text-gray-700">月間50人まで履歴表示</span>
+                  <span className="text-gray-700">1日1ユーザーまで履歴表示</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2 mt-1">✓</span>
-                  <span className="text-gray-700">過去3ヶ月のデータ</span>
+                  <span className="text-gray-700">コメント履歴・チャンネル統計</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2 mt-1">✓</span>
-                  <span className="text-gray-700">基本的な統計情報</span>
+                  <span className="text-gray-700">ユーザー名検索・コメント検索</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-gray-400 mr-2 mt-1">✗</span>
-                  <span className="text-gray-500 line-through">ユーザー名検索</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-gray-400 mr-2 mt-1">✗</span>
-                  <span className="text-gray-500 line-through">広告非表示</span>
+                  <span className="text-green-500 mr-2 mt-1">✓</span>
+                  <span className="text-gray-700">お気に入りユーザー保存</span>
                 </li>
               </ul>
               <a
@@ -158,41 +154,33 @@ export default function Home() {
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl shadow-xl p-8 relative">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                  人気No.1
+                  おすすめ
                 </span>
               </div>
               <div className="text-center mb-6">
                 <h4 className="text-2xl font-bold text-gray-900 mb-2">プレミアムプラン</h4>
-                <div className="text-4xl font-bold text-purple-600 dark:text-purple-400">¥500〜</div>
-                <p className="text-gray-600">月額 / 年額プランあり</p>
+                <div className="text-4xl font-bold text-purple-600">¥500</div>
+                <p className="text-gray-600">月額</p>
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2 mt-1">✓</span>
-                  <span className="text-gray-700 dark:text-gray-300 font-semibold">無制限の履歴表示</span>
+                  <span className="text-gray-700 font-semibold">1日1ユーザーの制限を解除</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2 mt-1">✓</span>
-                  <span className="text-gray-700">ユーザー名検索</span>
+                  <span className="text-gray-700">無制限にユーザーの履歴を閲覧</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2 mt-1">✓</span>
-                  <span className="text-gray-700">コメント内容検索</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2 mt-1">✓</span>
-                  <span className="text-gray-700">お気に入り保存（20人）</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2 mt-1">✓</span>
-                  <span className="text-gray-700">広告完全非表示</span>
+                  <span className="text-gray-700">いつでもキャンセル可能</span>
                 </li>
               </ul>
               <Link
                 href="/premium"
                 className="block w-full text-center py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg font-semibold"
               >
-                プレミアムにアップグレード
+                プレミアムについて詳しく見る
               </Link>
             </div>
           </div>

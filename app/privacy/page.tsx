@@ -46,9 +46,8 @@ export default function PrivacyPage() {
               <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 ml-4">
                 <li>閲覧したユーザー名（履歴表示ボタンをクリックしたユーザー）</li>
                 <li>拡張機能の使用状況（表示回数、使用日時）</li>
-                <li>お気に入りに保存したユーザー名（プレミアム機能）</li>
-                <li>デバイスID（ランダムに生成される識別子）</li>
-                <li>ライセンスキー情報</li>
+                <li>お気に入りに保存したユーザー名</li>
+                <li>Twitchアカウント認証情報（Supabase Auth経由）</li>
               </ul>
 
               <h3 className="text-xl font-medium text-gray-800 dark:text-gray-200 mt-6 mb-3">
@@ -95,8 +94,8 @@ export default function PrivacyPage() {
                 <li>コメント履歴表示機能の提供</li>
                 <li>ユーザー検索機能の提供（プレミアム）</li>
                 <li>お気に入り機能の提供（プレミアム）</li>
-                <li>プレミアムライセンスの認証と管理</li>
-                <li>月間使用制限の管理（無料プラン）</li>
+                <li>プレミアムサブスクリプションの認証と管理</li>
+                <li>1日1ユーザー制限の管理（無料プラン）</li>
                 <li>サービスの改善と新機能の開発</li>
                 <li>利用統計の分析</li>
                 <li>技術的な問題の診断と解決</li>
@@ -133,8 +132,7 @@ export default function PrivacyPage() {
                 <li>チャットメッセージ：3ヶ月間（自動削除）</li>
                 <li>ユーザー統計情報：サービス提供期間中</li>
                 <li>お気に入りユーザーリスト：利用者が削除するまで（ローカル保存）</li>
-                <li>月間使用履歴：1ヶ月間（ローカル保存）</li>
-                <li>ライセンス情報：契約期間中および終了後1年間</li>
+                <li>サブスクリプション情報：契約期間中および終了後1年間</li>
                 <li>アナリティクスデータ：1年間</li>
               </ul>
             </section>
@@ -166,11 +164,9 @@ export default function PrivacyPage() {
                 保存される情報には以下が含まれます：
               </p>
               <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 ml-4 mt-4">
-                <li>デバイスID（自動生成）</li>
-                <li>ライセンスキー情報</li>
+                <li>Twitchログインセッション情報</li>
                 <li>プレミアムステータス</li>
                 <li>お気に入りユーザーリスト（最大20名）</li>
-                <li>月間使用状況（無料プランの制限管理用）</li>
               </ul>
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 ml-4">
                 ※これらのデータはブラウザのローカルに保存され、拡張機能をアンインストールすると削除されます

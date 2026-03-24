@@ -56,11 +56,11 @@ export default function TermsPage() {
               <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 ml-4">
                 <li>Twitchの公開チャットメッセージの履歴表示（過去3ヶ月分）</li>
                 <li>ユーザーごとのメッセージ統計表示</li>
-                <li>ユーザー名検索機能（プレミアムプラン）</li>
-                <li>コメント内容検索機能（プレミアムプラン）</li>
-                <li>お気に入りユーザー保存機能（プレミアムプラン）</li>
-                <li>チャンネル統計機能（プレミアムプラン）</li>
-                <li>広告非表示機能（プレミアムプラン）</li>
+                <li>ユーザー名検索機能</li>
+                <li>コメント内容検索機能</li>
+                <li>お気に入りユーザー保存機能</li>
+                <li>チャンネル統計機能</li>
+                <li>1日1ユーザー制限の解除（プレミアムプラン）</li>
               </ul>
               <p className="text-gray-600 dark:text-gray-300 mt-4">
                 運営者は、本サービスの内容を利用者に通知することなく変更することができるものとします。
@@ -87,9 +87,9 @@ export default function TermsPage() {
                 第4条（アカウント管理）
               </h2>
               <p className="text-gray-600 dark:text-gray-300">
-                1. 利用者は、プレミアムプランの購入時に発行されるライセンスキーを適切に管理する責任を負います。<br />
-                2. ライセンスキーの紛失、盗難、不正使用等による損害について、運営者は一切責任を負いません。<br />
-                3. ライセンスキーの譲渡、貸与、販売は禁止されています。
+                1. 利用者は、プレミアムプランの利用に必要なTwitchアカウントを適切に管理する責任を負います。<br />
+                2. アカウントの不正使用等による損害について、運営者は一切責任を負いません。<br />
+                3. アカウントの共有、貸与、販売は禁止されています。
               </p>
             </section>
 
@@ -105,8 +105,6 @@ export default function TermsPage() {
               </p>
               <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 ml-4">
                 <li>月額プラン：500円（税込）</li>
-                <li>年額プラン：5,000円（税込）</li>
-                <li>その他、運営者が定める料金プラン</li>
               </ul>
               <p className="text-gray-600 dark:text-gray-300 mt-4">
                 3. 支払いは、Stripe を通じて処理されます。<br />
@@ -129,8 +127,7 @@ export default function TermsPage() {
                 <li>本サービスのサーバーに過度な負荷をかける行為</li>
                 <li>リバースエンジニアリング、逆コンパイル、逆アセンブル等の行為</li>
                 <li>自動化ツール、ボット、スクレイピング等による過度なアクセス</li>
-                <li>ライセンスキーの不正使用、譲渡、販売</li>
-                <li>複数のデバイスでの同時使用（ライセンスごとに1デバイス）</li>
+                <li>アカウントの不正使用、共有、販売</li>
                 <li>収集したデータの商用利用</li>
                 <li>その他、運営者が不適切と判断する行為</li>
               </ul>
@@ -185,7 +182,7 @@ export default function TermsPage() {
               </h2>
               <p className="text-gray-600 dark:text-gray-300">
                 運営者は、利用者が以下のいずれかに該当する場合、事前の通知なく本サービスの利用を
-                制限し、またはライセンスを無効化することができるものとします：
+                制限し、またはアカウントを停止することができるものとします：
               </p>
               <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 ml-4 mt-4">
                 <li>本規約のいずれかの条項に違反した場合</li>

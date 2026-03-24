@@ -107,7 +107,6 @@ export default function LegalPage() {
                           <p className="font-medium mb-2">プレミアムプラン</p>
                           <ul className="space-y-1 text-sm">
                             <li>• 月額プラン：500円（税込）</li>
-                            <li>• 年額プラン：5,000円（税込）</li>
                           </ul>
                         </div>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -148,8 +147,7 @@ export default function LegalPage() {
                     <td className="py-4">
                       購入手続き完了時に即時決済
                       <div className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-                        • 月額プラン：毎月自動更新<br />
-                        • 年額プラン：毎年自動更新
+                        • 月額プラン：毎月自動更新
                       </div>
                     </td>
                   </tr>
@@ -161,7 +159,7 @@ export default function LegalPage() {
                     <td className="py-4">
                       決済完了後、即時
                       <span className="text-sm text-gray-500 dark:text-gray-400 block mt-1">
-                        ライセンスキーをメールで送信し、即座にプレミアム機能をご利用いただけます
+                        決済完了後、拡張機能内で即座にプレミアム機能をご利用いただけます
                       </span>
                     </td>
                   </tr>
