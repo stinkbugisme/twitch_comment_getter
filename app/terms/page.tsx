@@ -136,6 +136,28 @@ export default function TermsPage() {
 
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
+                第6条の2（投稿機能）
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                本サービスは、全体掲示板、ユーザーへのコメント、ユーザーへの評価（グッド・バッド）の投稿機能を提供します。
+                投稿には、投稿者のTwitchユーザー名が表示されます。利用者は、投稿にあたり以下の行為をしてはなりません：
+              </p>
+              <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 ml-4">
+                <li>特定の人物・集団への誹謗中傷、侮辱、差別、脅迫</li>
+                <li>本名・住所・電話番号・学校・勤務先等の個人情報の掲載や、他者の個人情報を特定しようとする行為</li>
+                <li>宣伝、勧誘、スパム、同一内容の連投</li>
+                <li>わいせつな表現、自傷・自殺を勧める表現</li>
+                <li>事実と異なる情報により、他者の評価を不当に下げる行為</li>
+              </ul>
+              <p className="text-gray-600 dark:text-gray-300 mt-4">
+                運営者は、投稿内容を自動判定（AI）および利用者からの通報により確認し、本条に違反する、またはそのおそれがあると判断した投稿を、
+                事前の通知なく非表示または削除することがあります。投稿について権利侵害の申し立てを受けた場合は、法令に従い対応します。
+                投稿の責任は投稿者が負うものとします。
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
                 第7条（サービスの停止等）
               </h2>
               <p className="text-gray-600 dark:text-gray-300">
