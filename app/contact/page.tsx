@@ -8,6 +8,7 @@ function ContactForm() {
   const searchParams = useSearchParams();
   const [formType, setFormType] = useState('user');
   const [content, setContent] = useState('');
+  const [replyTo, setReplyTo] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -63,12 +64,14 @@ function ContactForm() {
         body: JSON.stringify({
           type: formType,
           content: content.trim(),
+          reply_to: replyTo.trim(),
         }),
       });
 
       if (response.ok) {
         setSubmitted(true);
         setContent('');
+        setReplyTo('');
       } else {
         alert('送信に失敗しました。もう一度お試しください。');
       }
@@ -225,6 +228,21 @@ function ContactForm() {
                 rows={8}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 required
+              />
+            </div>
+
+            {/* 返信先（任意） */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                返信先（任意）
+              </label>
+              <input
+                type="text"
+                value={replyTo}
+                onChange={(e) => setReplyTo(e.target.value)}
+                maxLength={200}
+                placeholder="返信が必要な場合はメールアドレスまたはX(Twitter)のIDを入力してください"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               />
             </div>
 
