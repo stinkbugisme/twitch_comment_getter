@@ -6,7 +6,7 @@ const API_URL = process.env.COMMENT_API_URL || 'https://api.comment-history.com'
 
 export async function POST(request: NextRequest) {
   try {
-    const { type, content, reply_to } = await request.json();
+    const { type, content, reply_to, category } = await request.json();
 
     if (!type || !content) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
         'X-Client-IP': request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? '',
       },
-      body: JSON.stringify({ type, content, reply_to: reply_to ?? '', source: 'site' }),
+      body: JSON.stringify({ type, content, category: category ?? '', reply_to: reply_to ?? '', source: 'site' }),
     });
 
     if (!res.ok) {
