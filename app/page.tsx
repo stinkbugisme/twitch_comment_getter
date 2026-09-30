@@ -1,6 +1,32 @@
 import Link from "next/link";
 
-export default function Home() {
+// トップページの実績値は VPS の実データ（1時間ごとに再生成）
+export const revalidate = 3600;
+
+type Stats = { messages: number; messages_24h: number; channels: number; users: number };
+
+async function getStats(): Promise<Stats | null> {
+  try {
+    const res = await fetch(`${process.env.COMMENT_API_URL || "https://api.comment-history.com"}/v1/stats`, {
+      next: { revalidate: 3600 },
+    });
+    return res.ok ? await res.json() : null;
+  } catch {
+    return null;
+  }
+}
+
+// 13112804 -> "1,311万", 170261 -> "17万", 53813 -> "5.3万"
+function ja(n: number): string {
+  if (n >= 1e8) return `${(n / 1e8).toFixed(1).replace(/\.0$/, "")}億`;
+  if (n >= 1e6) return `${Math.floor(n / 1e4).toLocaleString("ja-JP")}万`;
+  if (n >= 1e4) return `${(n / 1e4).toFixed(1).replace(/\.0$/, "")}万`;
+  return n.toLocaleString("ja-JP");
+}
+
+export default async function Home() {
+  const stats = await getStats();
+  const users = stats ? `${ja(stats.users)}人` : "17万人";
   return (
     <div className="font-sans min-h-screen bg-gradient-to-b from-purple-50 to-white">
       <nav className="w-full p-6 border-b border-gray-200 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
@@ -37,7 +63,7 @@ export default function Home() {
         <div className="relative max-w-6xl mx-auto px-8 py-16">
           <div className="text-center">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-sm font-medium mb-4">
-              <span className="animate-pulse mr-2">🔴</span> 36万人以上のユーザーデータを収集中
+              <span className="animate-pulse mr-2">🔴</span> {users}以上のユーザーデータを収集中
             </div>
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               Twitchコメント履歴保管庫
@@ -68,16 +94,16 @@ export default function Home() {
           {/* 実績カード */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
             <div className="bg-white p-4 rounded-lg text-center shadow-lg">
-              <div className="text-3xl font-bold text-purple-600">35M+</div>
-              <div className="text-sm text-gray-600">収集メッセージ数</div>
+              <div className="text-3xl font-bold text-purple-600">{stats ? `${ja(stats.messages)}+` : "1,300万+"}</div>
+              <div className="text-sm text-gray-600">保存コメント数（無期限保存）</div>
             </div>
             <div className="bg-white p-4 rounded-lg text-center shadow-lg">
-              <div className="text-3xl font-bold text-purple-600">363K+</div>
-              <div className="text-sm text-gray-600">登録ユーザー数</div>
+              <div className="text-3xl font-bold text-purple-600">{stats ? `${ja(stats.users)}+` : "17万+"}</div>
+              <div className="text-sm text-gray-600">記録ユーザー数</div>
             </div>
             <div className="bg-white p-4 rounded-lg text-center shadow-lg">
-              <div className="text-3xl font-bold text-purple-600">973K+</div>
-              <div className="text-sm text-gray-600">総アクティビティ</div>
+              <div className="text-3xl font-bold text-purple-600">{stats ? `+${ja(stats.messages_24h)}` : "毎日"}</div>
+              <div className="text-sm text-gray-600">直近24時間の新着コメント</div>
             </div>
             <div className="bg-white p-4 rounded-lg text-center shadow-lg">
               <div className="text-3xl font-bold text-purple-600">24/7</div>
@@ -279,7 +305,7 @@ export default function Home() {
             今すぐ快適な配信視聴体験を始めよう
           </h3>
           <p className="text-xl text-white/90 mb-8">
-            36万人以上のユーザーデータで、配信をもっと楽しく！
+            {users}以上のユーザーデータで、配信をもっと楽しく！
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <a

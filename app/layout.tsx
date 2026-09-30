@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Twitchコメント履歴保管庫 - ユーザーの過去のチャットを確認",
-  description: "Twitchで気になるユーザーの過去のコメントを簡単チェック。荒らし対策や配信の雰囲気把握に最適なChrome拡張機能。36万人以上のユーザーデータを収集中。",
+  description: "Twitchで気になるユーザーの過去のコメントを簡単チェック。荒らし対策や配信の雰囲気把握に最適なChrome拡張機能。24時間リアルタイムで収集し、コメントは無期限で保存。",
   keywords: "Twitch, コメント履歴, チャット履歴, Chrome拡張機能, 荒らし対策, 配信者支援, ユーザー分析",
   authors: [{ name: "Twitchコメント履歴保管庫" }],
   openGraph: {
