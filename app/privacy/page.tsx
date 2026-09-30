@@ -26,7 +26,7 @@ export default function PrivacyPage() {
           <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
             <section>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                最終更新日：2025年1月18日
+                最終更新日：2026年9月30日
               </p>
 
               <p className="text-gray-600 dark:text-gray-300">
@@ -55,12 +55,13 @@ export default function PrivacyPage() {
               </h3>
               <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 ml-4">
                 <li>Twitchの公開チャットメッセージ（監視対象チャンネルのみ）</li>
-                <li>公開ユーザー名</li>
+                <li>公開ユーザー名・表示名・TwitchユーザーID（名前変更後も同一人物として扱うため）</li>
                 <li>メッセージの投稿日時</li>
-                <li>チャンネル名</li>
+                <li>チャンネル名、および投稿時点の配信タイトル・カテゴリ（ゲーム名）</li>
+                <li>モデレーション情報（チャンネルのモデレーターによるタイムアウト・BAN・メッセージ削除の記録と、削除されたメッセージの本文）</li>
               </ul>
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 ml-4">
-                ※これらの情報は拡張機能が直接収集するものではなく、別システムで事前に収集されたデータです
+                ※これらの情報は拡張機能が直接収集するものではなく、Twitchのチャットで公開されている情報を別システムで収集したものです。収集したデータは国内のサーバー（さくらインターネット）に保存されます。
               </p>
 
               <h3 className="text-xl font-medium text-gray-800 dark:text-gray-200 mt-6 mb-3">
@@ -129,7 +130,7 @@ export default function PrivacyPage() {
                 4. データの保存期間
               </h2>
               <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 ml-4">
-                <li>チャットメッセージ：3ヶ月間（自動削除）</li>
+                <li>チャットメッセージ・モデレーション情報：期間の定めなく保存します（削除依頼があった場合は削除します）</li>
                 <li>ユーザー統計情報：サービス提供期間中</li>
                 <li>お気に入りユーザーリスト：利用者が削除するまで（ローカル保存）</li>
                 <li>サブスクリプション情報：契約期間中および終了後1年間</li>
@@ -199,6 +200,10 @@ export default function PrivacyPage() {
               </ul>
               <p className="text-gray-600 dark:text-gray-300 mt-4">
                 これらの権利行使を希望される場合は、下記の連絡先までご連絡ください。
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 mt-4">
+                ご自身のコメント履歴の削除は、お問い合わせフォームの「自分のコメント履歴の削除依頼」から受け付けます。
+                なりすましによる削除を防ぐため、ご本人確認を行ったうえで対応します。
               </p>
             </section>
 

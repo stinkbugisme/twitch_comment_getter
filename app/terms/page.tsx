@@ -26,7 +26,7 @@ export default function TermsPage() {
           <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
             <section>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                最終更新日：2025年1月18日
+                最終更新日：2026年9月30日
               </p>
 
               <p className="text-gray-600 dark:text-gray-300">
@@ -54,7 +54,8 @@ export default function TermsPage() {
                 本サービスは、以下の機能を提供します：
               </p>
               <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 ml-4">
-                <li>Twitchの公開チャットメッセージの履歴表示（過去3ヶ月分）</li>
+                <li>Twitchの公開チャットメッセージの履歴表示（収集対象チャンネルにおける収集開始以降の履歴。保存期間の定めなし）</li>
+                <li>モデレーション情報（タイムアウト・BAN・メッセージ削除の記録）の表示</li>
                 <li>ユーザーごとのメッセージ統計表示</li>
                 <li>ユーザー名検索機能</li>
                 <li>コメント内容検索機能</li>
@@ -260,7 +261,7 @@ export default function TermsPage() {
               </p>
               <p className="text-gray-600 dark:text-gray-300 mt-4">
                 制定日：2025年1月18日<br />
-                最終改定日：2025年1月18日
+                最終改定日：2026年9月30日
               </p>
             </section>
           </div>
