@@ -60,7 +60,7 @@ export default function TermsPage() {
                 <li>コメント内容検索機能</li>
                 <li>お気に入りユーザー保存機能</li>
                 <li>チャンネル統計機能</li>
-                <li>1日1ユーザー制限の解除（プレミアムプラン）</li>
+                <li>1日2ユーザー制限の解除（プレミアムプラン）</li>
               </ul>
               <p className="text-gray-600 dark:text-gray-300 mt-4">
                 運営者は、本サービスの内容を利用者に通知することなく変更することができるものとします。

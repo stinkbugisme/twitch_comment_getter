@@ -125,7 +125,7 @@ export default function Home() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2 mt-1">✓</span>
-                  <span className="text-gray-700">1日1ユーザーまで履歴表示</span>
+                  <span className="text-gray-700">1日2ユーザーまで履歴表示</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2 mt-1">✓</span>
@@ -165,7 +165,7 @@ export default function Home() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2 mt-1">✓</span>
-                  <span className="text-gray-700 font-semibold">1日1ユーザーの制限を解除</span>
+                  <span className="text-gray-700 font-semibold">1日2ユーザーの制限を解除</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2 mt-1">✓</span>

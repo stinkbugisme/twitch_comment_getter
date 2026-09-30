@@ -34,7 +34,7 @@ export default function PremiumPage() {
           {/* ヒーローセクション */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-sm font-medium mb-4">
-              <span className="mr-2">⭐</span> 1日1ユーザーの制限を解除
+              <span className="mr-2">⭐</span> 1日2ユーザーの制限を解除
             </div>
             <h1 className="text-5xl font-bold text-gray-900 mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               プレミアムプラン
@@ -64,7 +64,7 @@ export default function PremiumPage() {
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center">
                   <span className="text-green-500 mr-3">✓</span>
-                  <span className="font-semibold">1日1ユーザーの制限を解除</span>
+                  <span className="font-semibold">1日2ユーザーの制限を解除</span>
                 </li>
                 <li className="flex items-center">
                   <span className="text-green-500 mr-3">✓</span>
