@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
+/* v4 デザイントークン（拡張機能と共通の配色）。ダークモードはOS設定に追従 */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --bg: #fbfaff;
+  --surface: #ffffff;
+  --surface-2: #f5f3fa;
+  --text: #0e0e10;
+  --muted: #53535f;
+  --border: #e6e2ef;
+  --accent: #9147ff;
+  --accent-ink: #772ce8;
+  --accent-soft: rgba(145, 71, 255, 0.10);
+  --accent-2: #ff4f8b;
+  --accent-2-soft: rgba(255, 79, 139, 0.12);
+  --ok: #00a67e;
+  --shadow: 0 1px 0 rgba(20, 10, 40, .04), 0 8px 24px -12px rgba(60, 20, 120, .25);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #0e0e10;
+    --surface: #18181b;
+    --surface-2: #1f1f23;
+    --text: #efeff1;
+    --muted: #adadb8;
+    --border: #2f2f35;
+    --accent: #a970ff;
+    --accent-ink: #bf94ff;
+    --accent-soft: rgba(169, 112, 255, 0.14);
+    --accent-2: #ff6b9d;
+    --accent-2-soft: rgba(255, 107, 157, 0.14);
+    --ok: #2ed3a4;
+    --shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 12px 32px -16px rgba(0, 0, 0, .8);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --color-canvas: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-line: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-2: var(--accent-2);
+  --color-accent-2-soft: var(--accent-2-soft);
+  --color-ok: var(--ok);
+  --font-sans: var(--font-geist-sans), "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", system-ui, sans-serif;
+  --font-display: var(--font-display-face), var(--font-geist-sans), "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --shadow-card: var(--shadow);
 }
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ドットの地紋（Porkbun風の遊び） */
+.chx-dots {
+  background-image: radial-gradient(color-mix(in oklab, var(--accent) 22%, transparent) 1px, transparent 1.2px);
+  background-size: 18px 18px;
+}
+
+.chx-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.chx-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  font-weight: 800; border-radius: 999px; padding: .85rem 1.4rem;
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+  will-change: transform;
+}
+.chx-btn:hover { transform: translateY(-2px); }
+.chx-btn:active { transform: translateY(0); }
+.chx-btn-primary {
+  background: var(--accent); color: #fff;
+  box-shadow: 0 4px 0 var(--accent-ink), 0 10px 24px -10px var(--accent);
+}
+.chx-btn-primary:hover { box-shadow: 0 6px 0 var(--accent-ink), 0 14px 28px -10px var(--accent); }
+.chx-btn-ghost { background: var(--surface); color: var(--text); border: 2px solid var(--border); }
+.chx-btn-ghost:hover { border-color: var(--accent); color: var(--accent-ink); }
+
+.chx-sticker {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-weight: 800; font-size: .78rem; letter-spacing: .02em;
+  padding: .3rem .7rem; border-radius: 999px;
+  background: var(--accent-2-soft); color: var(--accent-2);
+  border: 1px dashed color-mix(in oklab, var(--accent-2) 60%, transparent);
+}
+
+.chx-kicker {
+  font-weight: 800; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent);
+}
+
+.chx-highlight {
+  background: linear-gradient(transparent 62%, color-mix(in oklab, var(--accent-2) 35%, transparent) 62%);
+  padding: 0 .1em;
+}
+
+/* 疑似チャット（トップのイラスト） */
+.chx-chat-line { display: flex; align-items: baseline; gap: .35rem; padding: .35rem .6rem; border-radius: 8px; font-size: .9rem; }
+.chx-chat-line.is-target { background: var(--accent-soft); }
+.chx-pill {
+  display: inline-flex; align-items: center; gap: 2px;
+  height: 18px; padding: 0 6px 0 4px; border-radius: 9px;
+  border: 1px solid color-mix(in oklab, var(--accent) 55%, transparent);
+  background: var(--accent-soft); color: var(--accent-ink);
+  font-size: 11px; font-weight: 800; line-height: 1; white-space: nowrap;
+}
+.chx-pill.is-hot { background: var(--accent); color: #fff; border-color: var(--accent); animation: chx-pulse 2.4s ease-in-out infinite; }
+
+@keyframes chx-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 45%, transparent); }
+  50% { box-shadow: 0 0 0 6px transparent; }
+}
+@keyframes chx-float { 0%, 100% { transform: translateY(0) rotate(-1.5deg); } 50% { transform: translateY(-6px) rotate(1deg); } }
+@keyframes chx-pop-in { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes chx-blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+@keyframes chx-live { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+
+.chx-float { animation: chx-float 6s ease-in-out infinite; }
+.chx-pop-in { animation: chx-pop-in .6s cubic-bezier(.2, .8, .2, 1) both; }
+.chx-delay-1 { animation-delay: .15s; }
+.chx-delay-2 { animation-delay: .3s; }
+.chx-delay-3 { animation-delay: .45s; }
+.chx-eye { transform-origin: center; transform-box: fill-box; animation: chx-blink 5s infinite; }
+.chx-live-dot { animation: chx-live 1.6s ease-in-out infinite; }
+
+.chx-feature { transition: transform .18s ease, border-color .18s ease; }
+.chx-feature:hover { transform: translateY(-4px) rotate(-.3deg); border-color: var(--accent); }
+
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .chx-chevron { transform: rotate(180deg); }
+.chx-chevron { transition: transform .2s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* 見出し書体は極太の1ウェイトのみ読み込む */
+.font-display { font-weight: 800; letter-spacing: -0.01em; }

@@ -1,25 +1,15 @@
 import Link from 'next/link';
+import SiteFooter from '../components/SiteFooter';
+import SiteHeader from '../components/SiteHeader';
 
 export default function LegalPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <nav className="w-full p-6 border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-            📊 Twitchコメント履歴保管庫
-          </Link>
-          <Link
-            href="/"
-            className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-          >
-            ホームに戻る
-          </Link>
-        </div>
-      </nav>
+    <div className="min-h-screen">
+      <SiteHeader />
 
-      <main className="max-w-4xl mx-auto p-8">
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+      <main className="mx-auto max-w-4xl px-4 py-12 md:px-6">
+        <div className="chx-card p-6 md:p-10">
+          <h1 className="mb-8 font-display text-3xl text-ink md:text-4xl">
             特定商取引法に基づく表記
           </h1>
 
@@ -258,15 +248,7 @@ export default function LegalPage() {
         </div>
       </main>
 
-      <footer className="mt-16 p-8 border-t border-gray-200 dark:border-gray-700 text-center text-gray-600 dark:text-gray-400">
-        <div className="flex justify-center gap-6 text-sm">
-          <Link href="/terms" className="hover:text-purple-600 dark:hover:text-purple-400">利用規約</Link>
-          <Link href="/privacy" className="hover:text-purple-600 dark:hover:text-purple-400">プライバシーポリシー</Link>
-          <Link href="/legal" className="hover:text-purple-600 dark:hover:text-purple-400">特定商取引法に基づく表記</Link>
-          <Link href="/help" className="hover:text-purple-600 dark:hover:text-purple-400">ヘルプ</Link>
-        </div>
-        <p className="mt-4">&copy; 2025 Twitchコメント履歴保管庫. All rights reserved.</p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

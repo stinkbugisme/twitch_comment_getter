@@ -3,6 +3,10 @@
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import Icon from '../components/Icon';
+import Mascot from '../components/Mascot';
+import SiteFooter from '../components/SiteFooter';
+import SiteHeader from '../components/SiteHeader';
 
 type Kind = 'user' | 'feature' | 'inquiry';
 
@@ -19,33 +23,19 @@ type ChannelCheck = {
 
 const API_URL = process.env.NEXT_PUBLIC_COMMENT_API_URL || 'https://api.comment-history.com';
 
-const KINDS: { value: Kind; label: string; desc: string }[] = [
-  { value: 'user', label: 'チャンネル追加申請', desc: 'コメントを収集してほしい配信者' },
-  { value: 'feature', label: '機能の要望', desc: 'こんな機能がほしい' },
-  { value: 'inquiry', label: 'お問い合わせ', desc: '不具合・課金・削除依頼など' },
+const KINDS: { value: Kind; label: string; desc: string; icon: string }[] = [
+  { value: 'user', label: 'チャンネル追加申請', desc: 'コメントを収集してほしい配信者', icon: 'tv' },
+  { value: 'feature', label: '機能の要望', desc: 'こんな機能がほしい', icon: 'sparkle' },
+  { value: 'inquiry', label: 'お問い合わせ', desc: '不具合・課金・削除依頼など', icon: 'mail' },
 ];
 
 const INQUIRY_CATEGORIES = ['不具合の報告', '課金・プレミアムについて', '自分のコメント履歴の削除依頼', '使い方の質問', 'その他'];
 
 const inputClass =
-  'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white';
+  'w-full rounded-2xl border border-line bg-surface px-4 py-3 text-ink shadow-sm outline-none transition-colors placeholder:text-muted focus:border-accent focus:ring-4 focus:ring-accent-soft';
 
 function Nav() {
-  return (
-    <nav className="w-full p-6 border-b border-gray-200 dark:border-gray-700">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-          📊 Twitchコメント履歴保管庫
-        </Link>
-        <Link
-          href="/"
-          className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-        >
-          ホームに戻る
-        </Link>
-      </div>
-    </nav>
-  );
+  return <SiteHeader />;
 }
 
 function ContactForm() {
@@ -146,14 +136,14 @@ function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <div className="min-h-screen">
         <Nav />
-        <div className="flex items-center justify-center min-h-[50vh] px-6">
-          <div className="text-center max-w-md">
-            <div className="text-green-500 text-6xl mb-4">✅</div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">送信完了</h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-8">{submitted}</p>
-            <div className="flex gap-3 justify-center">
+        <div className="flex items-center justify-center min-h-[60vh] px-6">
+          <div className="chx-card chx-pop-in text-center max-w-md p-8">
+            <Mascot size={96} className="chx-float mx-auto mb-4" />
+            <h2 className="font-display text-3xl text-ink mb-4">送信完了</h2>
+            <p className="text-muted mb-8">{submitted}</p>
+            <div className="flex flex-wrap gap-3 justify-center">
               <button
                 onClick={() => {
                   setSubmitted(null);
@@ -161,11 +151,11 @@ function ContactForm() {
                   setCheck(null);
                   setContent('');
                 }}
-                className="px-6 py-3 border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
+                className="chx-btn chx-btn-ghost"
               >
                 続けて送る
               </button>
-              <Link href="/" className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+              <Link href="/" className="chx-btn chx-btn-primary">
                 ホームに戻る
               </Link>
             </div>
@@ -176,17 +166,18 @@ function ContactForm() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen">
       <Nav />
-      <main className="max-w-2xl mx-auto p-6 md:p-8">
+      <main className="max-w-2xl mx-auto px-4 py-12 md:px-6">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">📝 お問い合わせ・申請</h1>
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="chx-kicker">Contact</p>
+          <h1 className="mt-2 font-display text-4xl text-ink mb-4">お問い合わせ・申請</h1>
+          <p className="text-muted">
             チャンネル追加は、フォロワー1万人以上またはパートナーの配信者なら自動で追加されます。
           </p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 md:p-8">
+        <div className="chx-card p-6 md:p-8">
           <form onSubmit={handleSubmit}>
             {/* 種類 */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
@@ -195,21 +186,22 @@ function ContactForm() {
                   type="button"
                   key={k.value}
                   onClick={() => setKind(k.value)}
-                  className={`text-left p-4 rounded-lg border-2 transition-colors ${
+                  className={`text-left p-4 rounded-2xl border-2 transition-all ${
                     kind === k.value
-                      ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/30'
-                      : 'border-gray-200 dark:border-gray-600 hover:border-purple-300'
+                      ? 'border-accent bg-accent-soft -translate-y-0.5'
+                      : 'border-line hover:border-accent'
                   }`}
                 >
-                  <div className="font-semibold text-gray-900 dark:text-white">{k.label}</div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{k.desc}</div>
+                  <Icon name={k.icon} size={20} className="text-accent-ink" />
+                  <div className="mt-2 font-black text-ink">{k.label}</div>
+                  <div className="text-xs text-muted mt-1">{k.desc}</div>
                 </button>
               ))}
             </div>
 
             {kind === 'user' && (
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-bold text-ink mb-2">
                   TwitchチャンネルのID または URL
                 </label>
                 <input
@@ -221,31 +213,31 @@ function ContactForm() {
                   autoComplete="off"
                 />
                 <div className="mt-3 min-h-[64px]">
-                  {checking && <p className="text-sm text-gray-500">Twitchで確認中...</p>}
+                  {checking && <p className="text-sm text-muted">Twitchに問い合わせ中…</p>}
                   {!checking && check && !check.exists && (
                     <p className="text-sm text-red-600">「{check.login}」というTwitchチャンネルは見つかりませんでした。</p>
                   )}
                   {!checking && check?.exists && (
-                    <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-700">
+                    <div className="flex items-center gap-3 p-3 rounded-2xl bg-surface-2 border border-line">
                       {check.profile_image_url && (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img src={check.profile_image_url} alt="" className="w-12 h-12 rounded-full" />
                       )}
                       <div className="text-sm">
-                        <div className="font-semibold text-gray-900 dark:text-white">
+                        <div className="font-black text-ink">
                           {check.display_name}（{check.login}）
                         </div>
-                        <div className="text-gray-600 dark:text-gray-300">
+                        <div className="text-muted">
                           フォロワー {check.followers != null ? check.followers.toLocaleString('ja-JP') : '不明'}人
                           {check.broadcaster_type === 'partner' && ' ・ パートナー'}
                         </div>
                         <div className="mt-1 font-medium">
                           {check.collected ? (
-                            <span className="text-green-600">✅ すでに収集中です</span>
+                            <span className="inline-flex items-center gap-1 text-ok"><Icon name="check" size={14} /> すでに収集中です</span>
                           ) : check.auto_approve ? (
-                            <span className="text-purple-600">⚡ 自動追加の対象です（送信後数分で収集開始）</span>
+                            <span className="inline-flex items-center gap-1 text-accent-ink"><Icon name="zap" size={14} /> 自動追加の対象です（送信後数分で収集開始）</span>
                           ) : (
-                            <span className="text-amber-600">📝 運営が確認して追加を判断します</span>
+                            <span className="inline-flex items-center gap-1 text-accent-2"><Icon name="eye" size={14} /> 運営が確認して追加を判断します</span>
                           )}
                         </div>
                       </div>
@@ -257,7 +249,7 @@ function ContactForm() {
 
             {kind === 'inquiry' && (
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">種類</label>
+                <label className="block text-sm font-bold text-ink mb-2">種類</label>
                 <select value={category} onChange={(e) => setCategory(e.target.value)} className={inputClass}>
                   {INQUIRY_CATEGORIES.map((c) => (
                     <option key={c}>{c}</option>
@@ -268,7 +260,7 @@ function ContactForm() {
 
             {isDeletion && (
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-bold text-ink mb-2">
                   削除を希望するあなたのTwitch ID（必須）
                 </label>
                 <input
@@ -278,14 +270,14 @@ function ContactForm() {
                   placeholder="例: your_twitch_id"
                   className={inputClass}
                 />
-                <p className="text-xs text-gray-500 mt-2">
+                <p className="text-xs text-muted mt-2">
                   なりすまし防止のため、ご本人確認の連絡をさせていただきます。返信先も必ずご入力ください。
                 </p>
               </div>
             )}
 
             <div className="mb-6">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-bold text-ink mb-2">
                 {kind === 'user' ? 'ひとこと（任意）' : '内容'}
               </label>
               <textarea
@@ -305,7 +297,7 @@ function ContactForm() {
             </div>
 
             <div className="mb-8">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-bold text-ink mb-2">
                 返信先{isDeletion ? '（必須）' : '（任意）'}
               </label>
               <input
@@ -321,13 +313,14 @@ function ContactForm() {
             <button
               type="submit"
               disabled={!canSubmit}
-              className="w-full px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              className="chx-btn chx-btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
             >
               {isSubmitting ? '送信中...' : kind === 'user' ? '追加を申請する' : '送信する'}
             </button>
           </form>
         </div>
       </main>
+      <SiteFooter />
     </div>
   );
 }
@@ -335,18 +328,12 @@ function ContactForm() {
 export default function ContactPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-800">
-        <nav className="w-full p-6 border-b border-gray-200 dark:border-gray-700">
-          <div className="max-w-6xl mx-auto flex justify-between items-center">
-            <Link href="/" className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-              📊 Twitchコメント履歴保管庫
-            </Link>
-          </div>
-        </nav>
+      <div className="min-h-screen">
+        <SiteHeader />
         <div className="flex items-center justify-center min-h-[50vh]">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
-            <p className="text-gray-600 dark:text-gray-300">読み込み中...</p>
+            <Mascot size={80} className="chx-float mx-auto mb-4" />
+            <p className="text-muted">フォームを準備中…</p>
           </div>
         </div>
       </div>
